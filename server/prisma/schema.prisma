@@ -6,9 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
 }
-
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
@@ -24,9 +22,9 @@ model User {
   verified Boolean @default(false)
   authProvider Provider
   verificationToken String?
-  tokenExpiry String?
+  tokenExpiry DateTime?
   updatedAt DateTime
-  lastActive DateTime
+  lastActive DateTime 
   videos Video[]
 }
 model Video {
